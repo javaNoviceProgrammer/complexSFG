@@ -1,4 +1,4 @@
-package complexSFG.edu.lrl.math;
+package math;
 
 import flanagan.math.ArrayMaths;
 import net.objecthunter.exp4j.ExpressionBuilder;

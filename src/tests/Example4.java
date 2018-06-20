@@ -1,10 +1,11 @@
-package complexSFG.edu.lrl.tests;
+package tests;
 
 import java.util.ArrayList;
-import complexSFG.edu.lrl.math.Complex;
-import complexSFG.edu.lrl.solver.SFG;
 
-public class Example1 {
+import math.Complex;
+import solver.SFG;
+
+public class Example4 {
 
 	public static void main(String[] args){
 		ArrayList<String> nodeNames = new ArrayList<>() ;
@@ -12,10 +13,13 @@ public class Example1 {
 		nodeNames.add("B") ; // node 2
 		nodeNames.add("C") ; // node 3
 		nodeNames.add("D") ; // node 4
-		SFG sfg = new SFG(nodeNames.size(), nodeNames) ;
+		SFG sfg = new SFG(4, nodeNames) ;
 		sfg.addArrow("A", "B", new Complex(3, 1));
 		sfg.addArrow("B", "C", new Complex(0, 2));
 		sfg.addArrow("C", "D", Complex.ONE);
+		sfg.addArrow("B", "D", new Complex(0, -3));
+		sfg.addArrow("A", "D", new Complex(1, -5));
+		sfg.addArrow("C", "A", new Complex(-2, 1));
 		// building up the paths between two designated nodes
 		String startNode = "A" ;
 		String endNode = "D" ;

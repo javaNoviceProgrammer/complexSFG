@@ -1,8 +1,8 @@
-package complexSFG.edu.lrl.solver;
+package solver;
 
 import java.util.*;
 
-import complexSFG.edu.lrl.math.Complex;
+import math.Complex;
 
 public class SFG {
 

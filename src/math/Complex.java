@@ -1,4 +1,4 @@
-package complexSFG.edu.lrl.math;
+package math;
 
 /******************************************************************************
  *  Compilation:  javac Complex.java

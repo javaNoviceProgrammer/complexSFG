@@ -1,11 +1,11 @@
-package complexSFG.edu.lrl.tests;
+package tests;
 
 import java.util.ArrayList;
 
-import complexSFG.edu.lrl.math.Complex;
-import complexSFG.edu.lrl.solver.SFG;
+import math.Complex;
+import solver.SFG;
 
-public class Example4 {
+public class Example2 {
 
 	public static void main(String[] args){
 		ArrayList<String> nodeNames = new ArrayList<>() ;
@@ -18,8 +18,6 @@ public class Example4 {
 		sfg.addArrow("B", "C", new Complex(0, 2));
 		sfg.addArrow("C", "D", Complex.ONE);
 		sfg.addArrow("B", "D", new Complex(0, -3));
-		sfg.addArrow("A", "D", new Complex(1, -5));
-		sfg.addArrow("C", "A", new Complex(-2, 1));
 		// building up the paths between two designated nodes
 		String startNode = "A" ;
 		String endNode = "D" ;
@@ -29,7 +27,7 @@ public class Example4 {
 		System.out.println(sfg.printAllLoops());
 		System.out.println("\nTotal forward gain is: " + sfg.computeForwardGain());
 		System.out.println("Graph determinant is: " + sfg.computeDelta());
-		Complex gain = sfg.computeForwardGain().divides(sfg.computeDelta()) ;
+		Complex gain = sfg.computeGain(1, 4).divides(sfg.computeDelta()) ;
 		System.out.println();
 		System.out.println("Total gain between node " + startNode +" and node "
 							+ endNode + " is: ") ;

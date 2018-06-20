@@ -1,9 +1,9 @@
-package complexSFG.edu.lrl.tests;
+package tests;
 
 import java.util.ArrayList;
 
-import complexSFG.edu.lrl.math.Complex;
-import complexSFG.edu.lrl.solver.SFG;
+import math.Complex;
+import solver.SFG;
 
 public class Example6 {
 
