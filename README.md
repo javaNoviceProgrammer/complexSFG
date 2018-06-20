@@ -1,2 +1,2 @@
-# complexSFG
-signal flow graph solver with complex gains
+# complex SFG
+Signal flow graph solver with complex gains.
