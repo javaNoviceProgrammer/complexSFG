@@ -24,7 +24,7 @@ public class SFG {
 		visited = new boolean[nodes];
 		nodesName = names;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public SFG(ArrayList<String> names) {
 		if(names != null){
@@ -47,15 +47,15 @@ public class SFG {
 		}
 
 	}
-	
+
 	public ArrayList<String> getNodes(){
 		return nodesName ;
 	}
-	
+
 	public ArrayList<Edge>[] getEdges(){
 		return graph ;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public void append(SFG sfg){
 		int M = nodesName.size() ;
@@ -77,13 +77,13 @@ public class SFG {
 			}
 		}
 		this.visited = new boolean[nodesName.size()] ;
-		this.forwardPaths = null ; 
+		this.forwardPaths = null ;
 		this.individualLoops = null ;
 		this.allLoops = null ;
 		this.orignal = null ;
 		this.deltaM = null ;
 	}
-	
+
 	public SFG combine(SFG sfg){
 		ArrayList<String> newNodes = new ArrayList<>() ;
 		newNodes.addAll(nodesName) ;
@@ -103,7 +103,7 @@ public class SFG {
 		}
 		return newSFG ;
 	}
-	
+
 	public String printAllNodes(){
 		String st = "" ;
 		for(int i=0; i<nodesName.size(); i++){
@@ -149,7 +149,7 @@ public class SFG {
 		}
 		return output.toString();
 	}
-	
+
 	public String printAllLoops_noGains() {
 		if (allLoops == null) {
 			constructLoops();
@@ -176,7 +176,7 @@ public class SFG {
 		}
 		return output.toString();
 	}
-	
+
 	// this is for compact form. only level 1 loops are printed in a full format.
 	public String printAllLoops_compactForm() {
 		if (allLoops == null) {
@@ -255,13 +255,13 @@ public class SFG {
 			return ans;
 		}
 	}
-	
+
 	public Complex getGain(String nodeSrc, String nodeDest){
 		buildForwardPaths(nodeSrc, nodeDest);
 		Complex gain = computeForwardGain().divides(computeDelta()) ;
 		return gain ;
 	}
-	
+
 	public Complex getGain(){
 		Complex gain = computeForwardGain().divides(computeDelta()) ;
 		return gain ;
@@ -356,15 +356,15 @@ public class SFG {
 	public void addArrow(int from, int to, Complex gain) { // from/to base 1
 		double eps = 1e-8 ;
 		if(gain.abs() > eps){
-			graph[--from].add(new Edge(--to, gain));	
+			graph[--from].add(new Edge(--to, gain));
 		}
 	}
-	
+
 	public void addArrow(int from, int to, double gain_real, double gain_imag) { // from/to base 1
 		double eps = 1e-8 ;
 		Complex gain = new Complex(gain_real, gain_imag) ;
 		if(gain.abs() > eps){
-			graph[--from].add(new Edge(--to, gain));	
+			graph[--from].add(new Edge(--to, gain));
 		}
 	}
 
@@ -373,17 +373,17 @@ public class SFG {
 		int to = nodesName.indexOf(nodeTo) + 1 ;
 		double eps = 1e-8 ;
 		if(gain.abs() > eps){
-			graph[--from].add(new Edge(--to, gain));	
+			graph[--from].add(new Edge(--to, gain));
 		}
 	}
-	
+
 	public void addArrow(String nodeFrom, String nodeTo, double gain_real, double gain_imag){
 		int from = nodesName.indexOf(nodeFrom) + 1 ;
 		int to = nodesName.indexOf(nodeTo) + 1 ;
 		Complex gain = new Complex(gain_real, gain_imag) ;
 		double eps = 1e-8 ;
 		if(gain.abs() > eps){
-			graph[--from].add(new Edge(--to, gain));	
+			graph[--from].add(new Edge(--to, gain));
 		}
 	}
 
@@ -422,7 +422,7 @@ public class SFG {
 		}
 		return output.toString();
 	}
-	
+
 	public String printForwardPaths_noGains() {
 		int i = 1;
 		StringBuilder output = new StringBuilder();
@@ -551,49 +551,7 @@ public class SFG {
 			}
 		}
 	}
-	
-//	private void combination(int level) { // level is in base "1"
-//		// starting building the (level) non-touching loops
-//		// from the (level-1) non-touching loops
-//
-//		if (level > allLoops.size())
-//			return;
-//
-//		ArrayList<Integer> curLevel = allLoops.get(level - 1);
-//		ArrayList<Integer> zeroLevel = allLoops.get(0);
-//
-//		int length = allLoops.get(level - 1).size(); // length of the (level)
-//														// list
-//		int zeroLenght = zeroLevel.size();
-//		for (int i = 0; i < length; i += level) {
-//			for (int k = i + level; k < zeroLenght; k++) {
-//
-//				boolean touched = false;
-//				for (int j = 0; j < level; j++) {
-//					if (isTouched(individualLoops.get(zeroLevel.get(k)), individualLoops.get(curLevel.get(i + j)))) {
-//						touched = true;
-//						break;
-//					}
-//				}
-//				if (!touched) { // if not touched then add this combination
-//					ArrayList<Integer> nextLevel = new ArrayList<>();
-//					if (allLoops.size() == level)
-//						allLoops.add(nextLevel = new ArrayList<Integer>());
-//					else
-//						nextLevel = allLoops.get(level);
-//					// check if this combination of paths were already taken
-//
-//					for (int j = 0; j < level; j++) {
-//						nextLevel.add(curLevel.get(i + j));
-//					}
-//					nextLevel.add(zeroLevel.get(k));
-//
-//				}
-//			}
-//		}
-//		combination(level + 1);
-//	}
-	
+
 	private void combination(int level) { // level is in base "1"
 		// starting building the (level) non-touching loops
 		// from the (level-1) non-touching loops
@@ -647,7 +605,7 @@ public class SFG {
 		}
 		combination(level + 1);
 	}
-	
+
 	private boolean isTouched(Path a, Path b) {
 		String[] aa = a.getPath().split(" ");
 		String[] bb = b.getPath().split(" ");
@@ -671,5 +629,5 @@ public class SFG {
 		}
 		return false;
 	}
-	
+
 }
