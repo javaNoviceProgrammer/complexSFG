@@ -236,6 +236,215 @@ public class Complex {
     	}
     	else {return null ;}
     }
+    
+    // ************ operator overloading **********************
+
+ 	/**
+ 	 * Operator overloading support:
+ 	 *
+ 	 * Object a = 5;
+ 	 *
+ 	 */
+ 	public Complex valueOf(int v) {
+ 		return new Complex(v, 0);
+ 	}
+
+ 	public Complex valueOf(long v) {
+ 		return new Complex(v, 0);
+ 	}
+
+ 	public Complex valueOf(float v) {
+ 		return new Complex(v, 0);
+ 	}
+
+ 	public Complex valueOf(double v) {
+ 		return new Complex(v, 0);
+ 	}
+
+ 	public Complex valueOf(Complex v) {
+ 		return new Complex(v.re, v.im);
+ 	}
+
+ 	/**
+ 	 * Operator overload support: a+b
+ 	 */
+ 	public Complex add(Complex v) {
+ 		return new Complex(this.re + v.re, this.im + v.im);
+ 	}
+
+ 	public Complex addRev(Complex v) {
+ 		return new Complex(this.re + v.re, this.im + v.im);
+ 	}
+
+ 	public Complex add(int v) {
+ 		return new Complex(this.re + v, this.im);
+ 	}
+
+ 	public Complex addRev(int v) {
+ 		return new Complex(v + this.re, this.im);
+ 	}
+
+ 	public Complex add(long v) {
+ 		return new Complex(this.re + v, this.im);
+ 	}
+
+ 	public Complex addRev(long v) {
+ 		return new Complex(v + this.re, this.im);
+ 	}
+
+ 	public Complex add(float v) {
+ 		return new Complex(this.re + v, this.im);
+ 	}
+
+ 	public Complex addRev(float v) {
+ 		return new Complex(v + this.re, this.im);
+ 	}
+
+ 	public Complex add(double v) {
+ 		return new Complex(this.re + v, this.im);
+ 	}
+
+ 	public Complex addRev(double v) {
+ 		return new Complex(v + this.re, this.im);
+ 	}
+
+ 	/**
+ 	 * Operator overload support: a-b
+ 	 */
+ 	public Complex subtract(Complex v) {
+ 		return new Complex(this.re - v.re, this.im - v.im);
+ 	}
+
+ 	public Complex subtractRev(Complex v) {
+ 		return new Complex(v.re - this.re, v.im - this.im);
+ 	}
+
+ 	public Complex subtract(int v) {
+ 		return new Complex(this.re - v, this.im);
+ 	}
+
+ 	public Complex subtractRev(int v) {
+ 		return new Complex(v - this.re, -this.im);
+ 	}
+
+ 	public Complex subtract(long v) {
+ 		return new Complex(this.re - v, this.im);
+ 	}
+
+ 	public Complex subtractRev(long v) {
+ 		return new Complex(v - this.re, -this.im);
+ 	}
+
+ 	public Complex subtract(float v) {
+ 		return new Complex(this.re - v, this.im);
+ 	}
+
+ 	public Complex subtractRev(float v) {
+ 		return new Complex(v - this.re, -this.im);
+ 	}
+
+ 	public Complex subtract(double v) {
+ 		return new Complex(this.re - v, this.im);
+ 	}
+
+ 	public Complex subtractRev(double v) {
+ 		return new Complex(v - this.re, -this.im);
+ 	}
+
+ 	/**
+ 	 * Operator overload support: a*b
+ 	 */
+ 	public Complex multiply(Complex v) {
+ 		return this.times(v);
+ 	}
+
+ 	public Complex multiplyRev(Complex v) {
+ 		return v.times(this);
+ 	}
+
+ 	public Complex multiply(int v) {
+ 		return new Complex(this.re * v, this.im * v);
+ 	}
+
+ 	public Complex multiplyRev(int v) {
+ 		return new Complex(this.re * v, this.im * v);
+ 	}
+
+ 	public Complex multiply(long v) {
+ 		return new Complex(this.re * v, this.im * v);
+ 	}
+
+ 	public Complex multiplyRev(long v) {
+ 		return new Complex(this.re * v, this.im * v);
+ 	}
+
+ 	public Complex multiply(float v) {
+ 		return new Complex(this.re * v, this.im * v);
+ 	}
+
+ 	public Complex multiplyRev(float v) {
+ 		return new Complex(this.re * v, this.im * v);
+ 	}
+
+ 	public Complex multiply(double v) {
+ 		return new Complex(this.re * v, this.im * v);
+ 	}
+
+ 	public Complex multiplyRev(double v) {
+ 		return new Complex(this.re * v, this.im * v);
+ 	}
+
+ 	/**
+ 	 * Operator overload support: a/b
+ 	 */
+ 	public Complex divide(Complex v) {
+ 		return this.divides(v);
+ 	}
+
+ 	public Complex divideRev(Complex v) {
+ 		return v.divides(this);
+ 	}
+
+ 	public Complex divide(int v) {
+ 		return this.divides(v);
+ 	}
+
+ 	public Complex divideRev(int v) {
+ 		return this.reciprocal().times(v);
+ 	}
+
+ 	public Complex divide(long v) {
+ 		return this.divides(v);
+ 	}
+
+ 	public Complex divideRev(long v) {
+ 		return this.reciprocal().times(v);
+ 	}
+
+ 	public Complex divide(float v) {
+ 		return this.divides(v);
+ 	}
+
+ 	public Complex divideRev(float v) {
+ 		return this.reciprocal().times(v);
+ 	}
+
+ 	public Complex divide(double v) {
+ 		return this.divides(v);
+ 	}
+
+ 	public Complex divideRev(double v) {
+ 		return this.reciprocal().times(v);
+ 	}
+
+ 	/**
+ 	 * Operator overload support: -a
+ 	 */
+ 	public Complex negate() {
+ 		return new Complex(-this.re, -this.im);
+ 	}
+ 	
+ 	//*******************************************
 
     public static void main(String[] args) {
         Complex nu = new Complex(3, -2) ;

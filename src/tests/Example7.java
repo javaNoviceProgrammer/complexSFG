@@ -1,7 +1,6 @@
 package tests;
 
-import static math.Complex.ONE;
-
+import static math.Complex.*;
 import java.util.ArrayList;
 
 import math.Complex;
@@ -21,10 +20,10 @@ public class Example7 {
 		nodeNames.add("C") ; // node 3
 		nodeNames.add("D") ; // node 4
 		SFG sfg = new SFG(4, nodeNames) ;
-		sfg.addArrow("A", "B", new Complex(3, 1));
-		sfg.addArrow("B", "C", new Complex(0, 2));
-		sfg.addArrow("C", "D", ONE);
-		sfg.addArrow("B", "D", new Complex(0, -3));
+		sfg.addArrow("A", "B", 3+j);
+		sfg.addArrow("B", "C", 2*j);
+		sfg.addArrow("C", "D", 1+0*j);
+		sfg.addArrow("B", "D", -3*j);
 		// building up the paths between two designated nodes
 		String startNode = "A" ;
 		String endNode = "D" ;
