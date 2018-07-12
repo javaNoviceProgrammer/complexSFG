@@ -1,7 +1,7 @@
 package tests;
 
 import java.util.ArrayList;
-
+import static math.Complex.*;
 import math.Complex;
 import solver.SFG;
 
@@ -16,7 +16,7 @@ public class Example2 {
 		SFG sfg = new SFG(4, nodeNames) ;
 		sfg.addArrow("A", "B", new Complex(3, 1));
 		sfg.addArrow("B", "C", new Complex(0, 2));
-		sfg.addArrow("C", "D", Complex.ONE);
+		sfg.addArrow("C", "D", ONE);
 		sfg.addArrow("B", "D", new Complex(0, -3));
 		// building up the paths between two designated nodes
 		String startNode = "A" ;
