@@ -37,20 +37,18 @@ public class Complex {
     public static final Complex ONE = new Complex(1,0) ;
     public static final Complex plusJ = new Complex(0,1) ;
     public static final Complex minusJ = new Complex(0,-1) ;
+    public static final Complex j = new Complex(0,1) ;
 
-    // create a new object with the given real and imaginary parts
     public Complex(double real, double imag) {
         re = real;
         im = imag;
     }
 
-   // adding a default value for the Complex object
     public Complex(){
     	re = 0 ;
     	im = 0 ;
     }
 
-    // return a string representation of the invoking Complex object
     public String toString() {
         if (im == 0) return re + "";
         if (re == 0) return "i" + im ;
@@ -58,13 +56,14 @@ public class Complex {
         return re + "+" + "i" + im ;
     }
 
-    // return abs/modulus/magnitude and angle/phase/argument
-    public double abs() { return Math.hypot(re, im); }  // Math.sqrt(re*re + im*im)
+    public double abs() { 
+    	return Math.hypot(re, im); // Math.sqrt(re*re + im*im)
+    }  
+    
     public double absSquared() {
     	return (Math.hypot(re, im)*Math.hypot(re, im)) ;
     }
 
-    // between zero and 2*pi
     public double phase(){
     	double restrictedPhase = Math.atan2(im, re) ;
     	if (restrictedPhase>=0){
@@ -75,7 +74,6 @@ public class Complex {
     	}
     }
 
-    // between -pi and pi
     public double phaseMinusPiToPi() {
     	return Math.atan2(im, re);
     	}
@@ -84,7 +82,6 @@ public class Complex {
     	return phase()*180/Math.PI ;
     }
 
-    // return a new Complex object whose value is (this + b)
     public Complex plus(Complex b) {
         Complex a = this;             // invoking object
         double real = a.re + b.re;
@@ -92,7 +89,6 @@ public class Complex {
         return new Complex(real, imag);
     }
 
-    // return a new Complex object whose value is (this + b)
     public Complex plus(double b) {
         Complex a = this;             // invoking object
         double real = a.re + b ;
@@ -100,7 +96,6 @@ public class Complex {
         return new Complex(real, imag);
     }
 
-    // return a new Complex object whose value is (this - b)
     public Complex minus(double b) {
         Complex a = this;
         double real = a.re - b ;
@@ -108,15 +103,13 @@ public class Complex {
         return new Complex(real, imag);
     }
 
-    // return a new Complex object whose value is (this - b)
     public Complex minus(Complex b) {
         Complex a = this;
         double real = a.re - b.re;
         double imag = a.im - b.im;
         return new Complex(real, imag);
     }
-
-    // return a new Complex object whose value is (this * b)
+    
     public Complex times(Complex b) {
         Complex a = this;
         double real = a.re * b.re - a.im * b.im;
@@ -124,58 +117,53 @@ public class Complex {
         return new Complex(real, imag);
     }
 
-    // scalar multiplication
-    // return a new object whose value is (this * alpha)
     public Complex times(double alpha) {
         return new Complex(alpha * re, alpha * im);
     }
 
-    // return a new Complex object whose value is the conjugate of this
-    public Complex conjugate() {  return new Complex(re, -im); }
+    public Complex conjugate() {  
+    	return new Complex(re, -im); 
+    }
 
-    // return a new Complex object whose value is the reciprocal of this
     public Complex reciprocal() {
         double scale = re*re + im*im;
         return new Complex(re / scale, -im / scale);
     }
 
-    // return the real or imaginary part
-    public double re() { return re; }
-    public double im() { return im; }
+    public double re() { 
+    	return re; 
+    }
+    
+    public double im() { 
+    	return im; 
+    }
 
-    // return a / b
     public Complex divides(Complex b) {
         Complex a = this;
         return a.times(b.reciprocal());
     }
 
-    // return complex (a/alpha) where a is complex and alpha is real
     public Complex divides(double alpha) {
         Complex a = this;
         return a.times(1/alpha);
     }
 
-    // return a new Complex object whose value is the complex exponential of this
     public Complex exp() {
         return new Complex(Math.exp(re) * Math.cos(im), Math.exp(re) * Math.sin(im));
     }
 
-    // return a new Complex object whose value is the complex sine of this
     public Complex sin() {
         return new Complex(Math.sin(re) * Math.cosh(im), Math.cos(re) * Math.sinh(im));
     }
 
-    // return a new Complex object whose value is the complex cosine of this
     public Complex cos() {
         return new Complex(Math.cos(re) * Math.cosh(im), -Math.sin(re) * Math.sinh(im));
     }
 
-    // return a new Complex object whose value is the complex tangent of this
     public Complex tan() {
         return sin().divides(cos());
     }
 
-    // returns power of a complex number: Z^p where p is a real number
     public Complex pow(double p){
     	double magPowered = Math.pow(this.abs(), p) ;
     	double phasePowered = this.phase() * p ;
@@ -185,7 +173,6 @@ public class Complex {
     	return powResult ;
     }
 
-    // equality of two complex numbers
     public boolean equals(Complex b){
     	Complex a = this ;
     	if(a.re()==b.re() & a.im()==b.im())
@@ -194,7 +181,6 @@ public class Complex {
     		return false ;
     }
 
-    // a static version of plus
     public static Complex plus(Complex a, Complex b) {
         double real = a.re + b.re;
         double imag = a.im + b.im;
@@ -266,7 +252,6 @@ public class Complex {
         System.out.println(st1.trim().split("[+-]")[2]);
         System.out.println("-----------------------------");
         System.out.println(parseComplex("+2.2   -  j 3 "));
-//        System.out.println(parseComplex("+i2.2  "));
     }
 
 }
