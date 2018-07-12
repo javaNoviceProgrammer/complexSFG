@@ -8,7 +8,7 @@ import solver.SFG;
 
 /**
  * Example of SFG with operator overloading for Complex numbers
- * @author meisam
+ * @author Meisam
  *
  */
 
@@ -20,6 +20,7 @@ public class Example7 {
 		nodeNames.add("C") ; // node 3
 		nodeNames.add("D") ; // node 4
 		SFG sfg = new SFG(4, nodeNames) ;
+		// defining gains using operator overloading of complex objects
 		sfg.addArrow("A", "B", 3+j);
 		sfg.addArrow("B", "C", 2*j);
 		sfg.addArrow("C", "D", 1+0*j);

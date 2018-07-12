@@ -12,7 +12,6 @@ public class Edge {
 		this.gain = gain;
 	}
 
-
 	public int getTo() {
 		return to;
 	}
