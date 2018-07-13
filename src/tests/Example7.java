@@ -1,10 +1,11 @@
 package tests;
 
-import static math.Complex.*;
+import static complexSFG.math.Complex.*;
+
 import java.util.ArrayList;
 
-import math.Complex;
-import solver.SFG;
+import complexSFG.math.Complex;
+import complexSFG.solver.SFG;
 
 /**
  * Example of SFG with operator overloading for Complex numbers

@@ -1,9 +1,11 @@
 package tests;
 
+import static complexSFG.math.Complex.*;
+
 import java.util.ArrayList;
-import static math.Complex.*;
-import math.Complex;
-import solver.SFG;
+
+import complexSFG.math.Complex;
+import complexSFG.solver.SFG;
 
 public class Example1 {
 

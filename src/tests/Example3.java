@@ -2,8 +2,8 @@ package tests;
 
 import java.util.ArrayList;
 
-import math.Complex;
-import solver.SFG;
+import complexSFG.math.Complex;
+import complexSFG.solver.SFG;
 
 public class Example3 {
 

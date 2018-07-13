@@ -1,7 +1,8 @@
 package tests;
 
-import static math.Complex.* ;
-import math.Complex;
+import static complexSFG.math.Complex.*;
+
+import complexSFG.math.Complex;
 
 /**
  * This is just a demonstration of operator overloading for complex numbers

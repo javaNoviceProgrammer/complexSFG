@@ -1,6 +1,6 @@
-package solver;
+package complexSFG.solver;
 
-import math.Complex;
+import complexSFG.math.Complex;
 
 public class Edge {
 

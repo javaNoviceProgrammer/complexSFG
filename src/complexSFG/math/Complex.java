@@ -1,4 +1,4 @@
-package math;
+package complexSFG.math;
 
 public class Complex {
     private final double re;   // the real part
