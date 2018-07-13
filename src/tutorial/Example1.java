@@ -1,4 +1,4 @@
-package tests;
+package tutorial;
 
 import static complexSFG.math.Complex.*;
 

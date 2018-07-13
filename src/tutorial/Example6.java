@@ -1,4 +1,4 @@
-package tests;
+package tutorial;
 
 import java.util.ArrayList;
 
