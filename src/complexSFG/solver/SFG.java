@@ -47,7 +47,7 @@ public class SFG {
 		}
 
 	}
-
+	
 	public ArrayList<String> getNodes(){
 		return nodesName ;
 	}
