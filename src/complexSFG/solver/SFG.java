@@ -376,6 +376,14 @@ public class SFG {
 			graph[--from].add(new Edge(--to, gain));
 		}
 	}
+	
+	public void addArrow(String nodeFrom, String nodeTo, double gain){
+		int from = nodesName.indexOf(nodeFrom) + 1 ;
+		int to = nodesName.indexOf(nodeTo) + 1 ;
+		if(gain != 0D){
+			graph[--from].add(new Edge(--to, new Complex(gain, 0)));
+		}
+	}
 
 	public void addArrow(String nodeFrom, String nodeTo, double gain_real, double gain_imag){
 		int from = nodesName.indexOf(nodeFrom) + 1 ;
